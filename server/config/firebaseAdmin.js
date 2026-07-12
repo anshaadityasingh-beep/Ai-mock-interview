@@ -1,9 +1,9 @@
 const admin = require('firebase-admin');
-const { getApps } = require('firebase-admin/app');
+const { initializeApp, getApps, cert } = require('firebase-admin/app');
 
 if (getApps().length === 0) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
+  initializeApp({
+    credential: cert({
       projectId: process.env.FIREBASE_PROJECT_ID,
       privateKey: process.env.FIREBASE_PRIVATE_KEY
         ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
