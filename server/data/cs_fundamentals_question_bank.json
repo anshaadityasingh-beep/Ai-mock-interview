@@ -1,0 +1,459 @@
+{
+  "OS": [
+    {
+      "topic": "OS",
+      "subtopic": "Process Management",
+      "question": "What is the difference between a process and a thread, and why is thread creation faster?",
+      "expected_depth": ["process has its own address space", "thread shares code/data section with other threads", "thread creation only needs a TCB, not full memory mapping"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Process Management",
+      "question": "Explain the difference between multitasking and multiprocessing.",
+      "expected_depth": ["multitasking = illusion of parallelism via context switching on one CPU", "multiprocessing = true parallelism across multiple cores/processors"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "CPU Scheduling",
+      "question": "Compare FCFS, SJF, and Round Robin scheduling. When would you use each?",
+      "expected_depth": ["FCFS simple but causes convoy effect", "SJF minimizes avg waiting time but can starve long jobs", "Round Robin fair, good for time-sharing systems"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "CPU Scheduling",
+      "question": "What is starvation, and how can it be avoided in priority scheduling?",
+      "expected_depth": ["low priority process never scheduled", "aging technique gradually increases waiting process priority"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Synchronization",
+      "question": "What's the difference between a mutex and a semaphore?",
+      "expected_depth": ["mutex is binary lock with ownership", "semaphore is a counter, can allow multiple threads, no ownership concept"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Synchronization",
+      "question": "Explain the Producer-Consumer problem and how semaphores solve it.",
+      "expected_depth": ["shared buffer between producer and consumer threads", "empty/full semaphores track buffer slots", "mutex protects critical section"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Deadlocks",
+      "question": "What are the four necessary conditions for a deadlock to occur?",
+      "expected_depth": ["mutual exclusion", "hold and wait", "no preemption", "circular wait"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Deadlocks",
+      "question": "How does the Banker's Algorithm help avoid deadlocks?",
+      "expected_depth": ["checks if resource allocation leads to a safe state before granting", "simulates allocation ahead of time", "requires max resource need to be known in advance"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Memory Management",
+      "question": "What is paging, and how does it solve the problem of external fragmentation?",
+      "expected_depth": ["divides memory into fixed-size pages/frames", "avoids need for contiguous allocation", "can still have internal fragmentation"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Memory Management",
+      "question": "Explain the difference between internal and external fragmentation.",
+      "expected_depth": ["internal = wasted space within allocated block", "external = free memory scattered in small chunks, unusable for large requests"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Memory Management",
+      "question": "What is thrashing, and what causes it?",
+      "expected_depth": ["system spends more time on page faults than actual execution", "caused by over-committing processes relative to available RAM", "degrades performance severely"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Memory Management",
+      "question": "Compare paging and segmentation as memory management schemes.",
+      "expected_depth": ["paging = fixed-size blocks, no external fragmentation", "segmentation = variable-size logical units, closer to programmer's view", "segmentation prone to external fragmentation"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Memory Management",
+      "question": "What is virtual memory and what problem does it solve?",
+      "expected_depth": ["lets processes use more memory than physically available via disk swapping", "gives each process its own isolated address space", "enables multiprogramming with limited RAM"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Page Replacement",
+      "question": "Compare FIFO, LRU, and Optimal page replacement algorithms.",
+      "expected_depth": ["FIFO simple but can suffer Belady's anomaly", "LRU approximates future use via past access", "Optimal is theoretical best, not implementable in practice"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "IPC",
+      "question": "What are the different ways processes can communicate with each other (IPC)?",
+      "expected_depth": ["pipes", "shared memory", "message queues", "sockets", "signals"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Concurrency",
+      "question": "What's the difference between a deadlock and a livelock?",
+      "expected_depth": ["deadlock = processes blocked waiting indefinitely", "livelock = processes actively running but making no progress, reacting to each other"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "System Basics",
+      "question": "What is the role of the kernel in an operating system?",
+      "expected_depth": ["core component managing CPU, memory, hardware", "bridge between applications and hardware via system calls"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "OS",
+      "subtopic": "Storage",
+      "question": "What is RAID, and why would a system use it?",
+      "expected_depth": ["combines multiple disks for redundancy/performance", "different RAID levels trade off speed vs fault tolerance", "e.g. RAID 0 = striping for performance, RAID 1 = mirroring for redundancy"],
+      "difficulty": "medium"
+    }
+  ],
+  "DBMS": [
+    {
+      "topic": "DBMS",
+      "subtopic": "Normalization",
+      "question": "Why would you normalize a database, and what's a case where you'd deliberately denormalize?",
+      "expected_depth": ["reduces redundancy and update/insert/delete anomalies", "denormalize for read-heavy performance, fewer joins", "trade-off: query speed vs data integrity"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Normalization",
+      "question": "Explain the difference between 1NF, 2NF, and 3NF with a simple example.",
+      "expected_depth": ["1NF: atomic values, no repeating groups", "2NF: no partial dependency on composite key", "3NF: no transitive dependency on non-key attributes"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Normalization",
+      "question": "What problems can over-normalization cause in a real system?",
+      "expected_depth": ["excessive joins hurt query performance", "harder to maintain and read queries", "may require denormalizing back for performance"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Transactions",
+      "question": "Explain the ACID properties of a transaction.",
+      "expected_depth": ["Atomicity: all-or-nothing", "Consistency: valid state transitions", "Isolation: concurrent transactions don't interfere", "Durability: committed data survives failures"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Transactions",
+      "question": "What are transaction isolation levels, and what problem does each one address?",
+      "expected_depth": ["read uncommitted, read committed, repeatable read, serializable", "address dirty reads, non-repeatable reads, phantom reads respectively"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Concurrency Control",
+      "question": "What's the difference between a deadlock and a livelock in database transactions?",
+      "expected_depth": ["deadlock: transactions blocked waiting on each other's locks indefinitely", "livelock: transactions actively responding to each other's changes but not progressing"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Concurrency Control",
+      "question": "What is the difference between shared and exclusive locks?",
+      "expected_depth": ["shared: multiple transactions can read simultaneously", "exclusive: only one transaction can hold it, blocks all other access"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Indexing",
+      "question": "Why do most databases prefer B+ Trees over B-Trees for indexing?",
+      "expected_depth": ["B+ trees store data only in leaf nodes, linked sequentially", "better for range queries and sequential scans", "higher fan-out means shallower trees, fewer disk I/Os"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Indexing",
+      "question": "What's the difference between a clustered and a non-clustered index?",
+      "expected_depth": ["clustered determines physical row order, only one per table", "non-clustered is a separate structure with pointers, multiple allowed"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Indexing",
+      "question": "When would adding an index actually hurt performance?",
+      "expected_depth": ["write-heavy tables: every insert/update/delete must also update index", "too many indexes increase storage and slow down writes"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Joins",
+      "question": "Explain the difference between INNER JOIN, LEFT JOIN, and how NULLs appear in results.",
+      "expected_depth": ["INNER: only matching rows in both tables", "LEFT: all rows from left, NULLs for unmatched right rows"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "SQL vs NoSQL",
+      "question": "How would you decide between a SQL and a NoSQL database for a new project?",
+      "expected_depth": ["SQL: strong consistency, complex relationships, ACID needs", "NoSQL: flexible schema, horizontal scaling, high-volume simple access patterns"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "SQL vs NoSQL",
+      "question": "What is the CAP theorem, and why can't a distributed system have all three?",
+      "expected_depth": ["Consistency, Availability, Partition tolerance", "during a network partition, must choose between consistency and availability", "partition tolerance is mandatory for distributed systems"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Schema Design",
+      "question": "How would you design a database schema for a scalable e-commerce application?",
+      "expected_depth": ["normalize first for integrity, then selectively denormalize for reads", "sharding for horizontal scale", "indexing on frequently queried fields", "caching layer for hot data"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Basics",
+      "question": "What's the difference between DELETE, TRUNCATE, and DROP?",
+      "expected_depth": ["DELETE removes rows conditionally, can rollback, triggers fire", "TRUNCATE removes all rows fast, minimal logging", "DROP removes the entire table structure"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Basics",
+      "question": "What is a stored procedure, and why would you use one?",
+      "expected_depth": ["precompiled SQL logic stored in DB", "reduces network round trips", "centralizes business logic, easier maintenance"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "DBMS",
+      "subtopic": "Keys",
+      "question": "Explain the difference between a primary key, foreign key, and candidate key.",
+      "expected_depth": ["primary key uniquely identifies a row", "foreign key references another table's primary key", "candidate key: any column(s) that could serve as primary key"],
+      "difficulty": "easy"
+    }
+  ],
+  "CN": [
+    {
+      "topic": "CN",
+      "subtopic": "OSI Model",
+      "question": "Walk me through the 7 layers of the OSI model and what each one does.",
+      "expected_depth": ["Physical: raw bits", "Data Link: node-to-node framing", "Network: routing/addressing", "Transport: end-to-end delivery", "Session/Presentation/Application: higher-level services"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "OSI vs TCP/IP",
+      "question": "How does the TCP/IP model differ from the OSI model?",
+      "expected_depth": ["TCP/IP has 4-5 practical layers vs OSI's 7 conceptual layers", "TCP/IP combines Session/Presentation/Application into one Application layer", "TCP/IP defines actual protocols, OSI is protocol-agnostic"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Transport Layer",
+      "question": "Explain the key differences between TCP and UDP, and give a use case for each.",
+      "expected_depth": ["TCP: connection-oriented, reliable, ordered — used for web/file transfer", "UDP: connectionless, fast, no guarantees — used for streaming/gaming/DNS"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Transport Layer",
+      "question": "How does TCP guarantee reliable delivery of data?",
+      "expected_depth": ["acknowledgements and retransmission", "sequence numbers for ordering", "checksums for error detection", "handles duplicate/out-of-order/missing segments"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Transport Layer",
+      "question": "Explain the TCP three-way handshake.",
+      "expected_depth": ["SYN from client", "SYN-ACK from server", "ACK from client", "establishes connection before data transfer"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Congestion Control",
+      "question": "How does TCP handle congestion control?",
+      "expected_depth": ["slow start increases window exponentially initially", "congestion avoidance grows linearly after threshold", "reduces window on packet loss detection"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Addressing",
+      "question": "What's the difference between a public and a private IP address?",
+      "expected_depth": ["private: used within local networks, not routable on internet", "public: globally unique, routable on the internet", "NAT translates between them"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Addressing",
+      "question": "What is the purpose of subnetting?",
+      "expected_depth": ["divides a network into smaller logical sub-networks", "improves address utilization and reduces broadcast traffic", "improves security/isolation between segments"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "DNS",
+      "question": "Walk me through what happens when you type a URL into a browser, focusing on DNS resolution.",
+      "expected_depth": ["browser checks cache, then queries DNS resolver", "resolver queries root -> TLD -> authoritative nameservers", "returns IP address, browser initiates TCP connection"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "HTTP",
+      "question": "What's the difference between HTTP and HTTPS?",
+      "expected_depth": ["HTTPS adds TLS/SSL encryption layer", "protects against eavesdropping and man-in-the-middle attacks", "uses certificates for authentication"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Routing",
+      "question": "What is the role of a router versus a switch in a network?",
+      "expected_depth": ["switch operates at data link layer, forwards within a LAN using MAC addresses", "router operates at network layer, forwards between different networks using IP addresses"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Load Balancing",
+      "question": "How does a load balancer decide which server to send a request to?",
+      "expected_depth": ["algorithms like round robin, least connections, IP hash", "health checks to avoid routing to unhealthy servers", "can operate at L4 (transport) or L7 (application) level"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Security",
+      "question": "What is a firewall, and how does it decide what traffic to block?",
+      "expected_depth": ["examines packets against defined security rules", "can filter by IP, port, protocol", "can be hardware, software, or both"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Addressing",
+      "question": "What is the purpose of a default gateway?",
+      "expected_depth": ["device (usually router) that connects local network to external networks", "traffic destined outside the local subnet is sent here first"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "CN",
+      "subtopic": "Reliability",
+      "question": "If UDP is unreliable, why is it still used for things like video calls or DNS?",
+      "expected_depth": ["lower overhead, no handshake or retransmission delay", "for real-time data, a dropped/late packet is worse than a missing one", "speed matters more than perfect reliability in these use cases"],
+      "difficulty": "medium"
+    }
+  ],
+  "OOP": [
+    {
+      "topic": "OOP",
+      "subtopic": "Core Pillars",
+      "question": "What are the four pillars of OOP, and can you explain each with a real-world example?",
+      "expected_depth": ["encapsulation: bundling data+methods, restricting direct access", "inheritance: reusing common properties across classes", "polymorphism: same interface, different behavior", "abstraction: hiding implementation, exposing essential behavior"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Abstraction vs Encapsulation",
+      "question": "What's the difference between abstraction and encapsulation? People often confuse these.",
+      "expected_depth": ["abstraction hides complexity, exposes only essential behavior", "encapsulation hides data, bundles data+methods, restricts direct access", "abstraction is about design, encapsulation is about implementation/access control"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Polymorphism",
+      "question": "Explain the difference between method overloading and method overriding.",
+      "expected_depth": ["overloading: same name, different parameters, resolved at compile time", "overriding: subclass redefines parent method, resolved at runtime via dynamic binding"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Polymorphism",
+      "question": "How does runtime polymorphism actually work under the hood (e.g. vtables)?",
+      "expected_depth": ["virtual functions enable dynamic dispatch", "vtable stores pointers to actual implementations", "correct function resolved based on actual object type, not pointer/reference type"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Abstract Classes vs Interfaces",
+      "question": "What's the difference between an abstract class and an interface, and when would you choose one over the other?",
+      "expected_depth": ["abstract class can have both implemented and unimplemented methods", "interface traditionally fully unimplemented, supports multiple inheritance", "use abstract class for shared base behavior, interface for a contract across unrelated classes"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Inheritance",
+      "question": "What is the diamond problem in multiple inheritance, and how do different languages handle it?",
+      "expected_depth": ["ambiguity when a class inherits from two classes sharing a common base", "C++ resolves via virtual inheritance", "Java avoids it by disallowing multiple class inheritance, using interfaces instead"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Inheritance",
+      "question": "What are the downsides of using inheritance too heavily in a design?",
+      "expected_depth": ["tight coupling between parent and child", "deep hierarchies waste memory and hurt performance", "can unintentionally expose internal details", "favor composition over inheritance in many cases"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Composition vs Inheritance",
+      "question": "What's the difference between composition and inheritance, and why is 'favor composition over inheritance' common advice?",
+      "expected_depth": ["inheritance: is-a relationship", "composition: has-a relationship, one class contains another", "composition gives more flexibility, avoids fragile base class issues"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Design Principles",
+      "question": "Can you explain the Single Responsibility Principle with an example of a class that violates it?",
+      "expected_depth": ["a class should have only one reason to change", "example: a class handling both authentication and email sending should be split"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Design Principles",
+      "question": "What does 'open for extension, closed for modification' mean (Open/Closed Principle)?",
+      "expected_depth": ["should be able to add new behavior without changing existing code", "typically achieved via abstraction/interfaces and polymorphism"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Access Modifiers",
+      "question": "Explain the difference between private, protected, and public access modifiers.",
+      "expected_depth": ["private: accessible only within the class", "protected: accessible within class and subclasses", "public: accessible from anywhere"],
+      "difficulty": "easy"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Design Patterns",
+      "question": "What is the Singleton pattern, and what's a real scenario where you'd use it?",
+      "expected_depth": ["ensures only one instance of a class exists", "provides a global access point", "used for things like config managers, connection pools, logging"],
+      "difficulty": "medium"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Constructors/Destructors",
+      "question": "Why does a base class need a virtual destructor in C++ if it's going to be inherited?",
+      "expected_depth": ["without virtual destructor, deleting via base pointer only calls base destructor", "can cause memory leaks in derived class resources", "virtual destructor ensures full cleanup chain executes"],
+      "difficulty": "hard"
+    },
+    {
+      "topic": "OOP",
+      "subtopic": "Coupling",
+      "question": "What's the difference between tight coupling and loose coupling, and how does abstraction help achieve loose coupling?",
+      "expected_depth": ["tight coupling: class directly depends on another's concrete implementation", "loose coupling: depend on abstraction/interface, not concrete class", "enables swapping implementations without changing dependent code"],
+      "difficulty": "medium"
+    }
+  ]
+}
+
