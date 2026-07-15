@@ -15,6 +15,9 @@ const PORT = process.env.PORT || 5000;
 // Connect to MongoDB
 connectDB();
 
+// Initialize Firebase Admin
+require('./config/firebaseAdmin');
+
 // Middleware
 let clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
 if (clientUrl.endsWith('/')) {
