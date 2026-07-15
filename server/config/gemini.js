@@ -11,9 +11,9 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
  */
 const sendToGemini = async (systemPrompt, history, userMessage) => {
   const model = genAI.getGenerativeModel({
-    model: 'gemini-1.5-flash',
+    model: 'gemini-3.1-flash-lite',
     systemInstruction: systemPrompt,
-  }, { apiVersion: 'v1' });
+  });
 
   const chat = model.startChat({ history });
   const result = await chat.sendMessage(userMessage);
