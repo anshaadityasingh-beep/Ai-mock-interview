@@ -16,7 +16,11 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 // Middleware
-const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+let clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+if (clientUrl.endsWith('/')) {
+  clientUrl = clientUrl.slice(0, -1);
+}
+
 app.use(cors({
   origin: [clientUrl, 'http://localhost:5173', 'http://localhost:3000'],
   credentials: true
