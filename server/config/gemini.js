@@ -13,7 +13,7 @@ const sendToGemini = async (systemPrompt, history, userMessage) => {
   const model = genAI.getGenerativeModel({
     model: 'gemini-1.5-flash',
     systemInstruction: systemPrompt,
-  });
+  }, { apiVersion: 'v1' });
 
   const chat = model.startChat({ history });
   const result = await chat.sendMessage(userMessage);
