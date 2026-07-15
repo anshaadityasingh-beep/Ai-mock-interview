@@ -101,10 +101,13 @@ const sendMessage = async (req, res) => {
     // Convert transcript to Gemini history format
     // Gemini expects: [{role: 'user'|'model', parts: [{text}]}]
     // Skip the very last user message (we'll send it separately)
-    const history = session.transcript.slice(0, -1).map((turn) => ({
-      role: turn.role === 'ai' ? 'model' : 'user',
-      parts: [{ text: turn.message }],
-    }));
+    const history = [
+      { role: 'user', parts: [{ text: 'Begin the interview.' }] },
+      ...session.transcript.slice(0, -1).map((turn) => ({
+        role: turn.role === 'ai' ? 'model' : 'user',
+        parts: [{ text: turn.message }],
+      }))
+    ];
 
     // Get AI response
     const aiResponse = await sendToGemini(systemPrompt, history, message);
