@@ -24,12 +24,15 @@ ${formattedTranscript}
 Based on this transcript, evaluate the candidate's performance. You MUST return ONLY a valid JSON object — no markdown code fences, no preamble, no explanation. The JSON must be exactly in this shape:
 
 {
+  "overallScore": <integer from 1 to 10>,
   "approachCorrectness": "correct" | "partially_correct" | "incorrect",
   "depthOfUnderstanding": "strong" | "moderate" | "weak",
   "communicationClarity": "clear" | "somewhat_clear" | "unclear",
   "neededHints": true | false,
   "oneLineFeedback": "a single encouraging but honest sentence summarizing the candidate's performance"
 }
+
+For the "overallScore" field: provide your holistic overall judgment of the candidate's interview performance for this question on a 1-10 scale. This should reflect approach correctness, depth of understanding, communication clarity, and whether hints were needed — but it is NOT just a mechanical average of the other fields. Use your expert judgment: 10 means an excellent, confident, fully correct answer requiring no help; 1 means a very weak or incorrect answer. Be fair but honest.
 
 Return ONLY the JSON. Nothing else.`;
 };

@@ -17,6 +17,11 @@ const TranscriptSchema = new mongoose.Schema({
 });
 
 const ScoreSchema = new mongoose.Schema({
+  overallScore: {
+    type: Number,
+    min: 1,
+    max: 10,
+  },
   approachCorrectness: {
     type: String,
   },

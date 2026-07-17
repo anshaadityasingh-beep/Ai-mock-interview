@@ -23,12 +23,48 @@ const Badge = ({ value }) => {
   );
 };
 
+const getScoreColor = (score) => {
+  if (score >= 8) return '#22c55e'; // Green
+  if (score >= 5) return '#f59e0b'; // Yellow
+  return '#ef4444';                 // Red
+};
+
+const getScoreGlow = (score) => {
+  if (score >= 8) return 'rgba(34, 197, 94, 0.25)';
+  if (score >= 5) return 'rgba(245, 158, 11, 0.25)';
+  return 'rgba(239, 68, 68, 0.25)';
+};
+
 const SessionResult = ({ score }) => {
   if (!score) return null;
+
+  const overallScore = score.overallScore;
+  const scoreColor = overallScore ? getScoreColor(overallScore) : '#6b7280';
+  const scoreGlow = overallScore ? getScoreGlow(overallScore) : 'transparent';
 
   return (
     <div className="session-result">
       <h2>Interview Complete 🎉</h2>
+
+      {/* Overall Score Headline */}
+      {overallScore && (
+        <div className="overall-score-display">
+          <div
+            className="overall-score-circle"
+            style={{
+              borderColor: scoreColor,
+              boxShadow: `0 0 30px ${scoreGlow}, 0 0 60px ${scoreGlow}`,
+            }}
+          >
+            <span className="overall-score-number" style={{ color: scoreColor }}>
+              {overallScore}
+            </span>
+            <span className="overall-score-divider">/10</span>
+          </div>
+          <p className="overall-score-label">Overall Score</p>
+        </div>
+      )}
+
       <p className="result-feedback">"{score.oneLineFeedback}"</p>
 
       <div className="score-cards">
