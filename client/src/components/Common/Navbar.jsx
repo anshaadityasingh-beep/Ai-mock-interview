@@ -7,8 +7,6 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  if (!currentUser) return null;
-
   const handleLogout = async () => {
     try {
       await logout();
@@ -20,26 +18,31 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <span className="navbar-brand">🎯 MockIQ</span>
-      <div className="navbar-links">
-        <Link
-          to="/dashboard"
-          className={`navbar-link ${location.pathname === '/dashboard' ? 'active' : ''}`}
-        >
-          Dashboard
-        </Link>
-        <Link
-          to="/interview"
-          className={`navbar-link ${location.pathname === '/interview' ? 'active' : ''}`}
-        >
-          New Interview
-        </Link>
-      </div>
-      <div className="navbar-actions">
-        <button className="logout-btn" onClick={handleLogout}>
-          Log Out
-        </button>
-      </div>
+      <Link to="/" className="navbar-brand">🎯 MockIQ</Link>
+
+      {currentUser && (
+        <>
+          <div className="navbar-links">
+            <Link
+              to="/dashboard"
+              className={`navbar-link ${location.pathname === '/dashboard' ? 'active' : ''}`}
+            >
+              Dashboard
+            </Link>
+            <Link
+              to="/interview"
+              className={`navbar-link ${location.pathname === '/interview' ? 'active' : ''}`}
+            >
+              New Interview
+            </Link>
+          </div>
+          <div className="navbar-actions">
+            <button className="logout-btn" onClick={handleLogout}>
+              Log Out
+            </button>
+          </div>
+        </>
+      )}
     </nav>
   );
 };
