@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const features = [
   '🧠 AI-Driven Interviews',
@@ -10,6 +11,13 @@ const features = [
 ];
 
 const Home = () => {
+  const { currentUser } = useAuth();
+
+  // Already logged in → go straight to dashboard
+  if (currentUser) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
   return (
     <div className="home-page">
       <span className="home-badge">✨ AI-Powered Interview Prep</span>

@@ -1,9 +1,17 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import LoginForm from '../components/Auth/LoginForm';
 import SignupForm from '../components/Auth/SignupForm';
 
 const Login = () => {
+  const { currentUser } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
+
+  // Already logged in → send to dashboard
+  if (currentUser) {
+    return <Navigate to="/dashboard" replace />;
+  }
 
   return (
     <div className="auth-page">
